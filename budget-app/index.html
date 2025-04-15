@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단 가계부</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>간단 가계부</h1>
+            </div>
+        </header>
+        
+        <!-- 현재 잔액 섹션 -->
+        <div class="summary-section">
+            <div class="balance-header">
+                <h2>현재 잔액</h2>
+            </div>
+            <div class="balance">₩0</div>
+            
+            <div class="finance-summary">
+                <div class="income">
+                    <span class="finance-label">수입</span>
+                    <span class="income-value">₩0</span>
+                </div>
+                <div class="expense">
+                    <span class="finance-label">지출</span>
+                    <span class="expense-value">₩0</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 최근 거래내역 섹션 -->
+        <div class="transaction-list">
+            <h2>최근 거래내역</h2>
+            
+            <div id="transactions-container" class="transactions">
+                <!-- 거래 내역이 여기에 동적으로 추가됩니다 -->
+            </div>
+        </div>
+        
+        <!-- 새 거래내역 추가 버튼 -->
+        <div class="add-transaction-button-container">
+            <a href="add-transaction.html" class="add-transaction-button">
+                <span>+</span> 새 거래내역 추가
+            </a>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // 서비스 워커 등록 (PWA 지원)
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+              .then(registration => {
+                console.log('서비스 워커 등록 성공:', registration.scope);
+              })
+              .catch(error => {
+                console.log('서비스 워커 등록 실패:', error);
+              });
+          });
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --income-color: #2196F3;
+            --expense-color: #f44336;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #757575;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            max-width: 500px; /* 모바일 중심 디자인 */
+            margin: 0 auto;
+        }
+        
+        .container {
+            width: 100%;
+            padding: 16px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 16px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+        
+        .summary-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        .balance-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .balance-header h2 {
+            font-size: 18px;
+            color: var(--dark-gray);
+        }
+        
+        .balance {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .finance-summary {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        
+        .income, .expense {
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .income {
+            background-color: rgba(33, 150, 243, 0.1);
+        }
+        
+        .expense {
+            background-color: rgba(244, 67, 54, 0.1);
+        }
+        
+        .finance-label {
+            font-size: 14px;
+            color: var(--dark-gray);
+            margin-bottom: 3px;
+        }
+        
+        .income-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--income-color);
+        }
+        
+        .expense-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--expense-color);
+        }
+        
+        .transaction-list {
+            background-color: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        .transaction-list h2 {
+            margin-bottom: 12px;
+            color: var(--dark-gray);
+            font-size: 18px;
+        }
+        
+        .transactions {
+            margin-top: 10px;
+        }
+        
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        
+        .transaction-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+        }
+        
+        .transaction-details h3 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        
+        .transaction-meta {
+            font-size: 13px;
+            color: var(--dark-gray);
+        }
+        
+        .transaction-amount {
+            font-weight: bold;
+        }
+        
+        .amount-expense {
+            color: var(--expense-color);
+        }
+        
+        .amount-income {
+            color: var(--income-color);
+        }
+        
+        .add-transaction-form {
+            background-color: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+        
+        .add-transaction-form h2 {
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+            font-size: 18px;
+        }
+        
+        .transaction-type-selector {
+            display: flex;
+            margin-bottom: 16px;
+            gap: 10px;
+        }
+        
+        .type-radio {
+            display: none;
+        }
+        
+        .type-label {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .income-label {
+            background-color: rgba(33, 150, 243, 0.1);
+            color: var(--income-color);
+            border: 1px solid var(--income-color);
+        }
+        
+        .expense-label {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--expense-color);
+            border: 1px solid var(--expense-color);
+        }
+        
+        .type-radio:checked + .income-label {
+            background-color: var(--income-color);
+            color: white;
+        }
+        
+        .type-radio:checked + .expense-label {
+            background-color: var(--expense-color);
+            color: white;
+        }
+        
+        .form-group {
+            margin-bottom: 12px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        
+        .date-group {
+            position: relative;
+        }
+        
+        .today-btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: var(--light-gray);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .form-actions {
+            margin-top: 16px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        /* 새 거래내역 추가 버튼 */
+.add-transaction-button-container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.add-transaction-button {
+    display: block;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.add-transaction-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.add-transaction-button span {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* 취소 버튼 스타일 */
+.cancel-btn {
+    display: inline-block;
+    padding: 14px 20px;
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 6px;
+    margin-right: 10px;
+    flex: 1;
+}
+
+.cancel-btn:hover {
+    background-color: var(--medium-gray);
+}
+
+/* 폼 액션 영역 수정 */
+.form-actions {
+    margin-top: 16px;
+    display: flex;
+}
+
+.form-actions .submit-btn {
+    flex: 2;
+}
+
+/* 헤더에 뒤로가기 버튼 추가 (add-transaction.html에서 사용) */
+header {
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark-gray);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.back-button svg {
+    margin-right: 5px;
+}
+    /* 거래내역 없음 메시지 */
+.no-transactions {
+    text-align: center;
+    padding: 20px;
+    color: var(--dark-gray);
+}
+
+/* 메인 페이지 거래내역 스크롤 */
+.transactions {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* 입력 숫자 필드 스타일 */
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+    }
+    
+    header {
+        padding: 12px 0;
+        margin-bottom: 16px;
+    }
+    
+    .balance {
+        font-size: 24px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cancel-btn, .submit-btn {
+        width: 100%;
+    }
+}
